@@ -1,0 +1,17 @@
+<h1>Posts do meu blog</h1>
+
+<% @blog_posts.each do |post| %>
+
+  <div>
+
+    <h2><%= link_to post.title, post %></h2>
+    <% if post.draft? %>
+      <p class="bg-red-100 rounded p-2">Draft</p>
+    <% elsif post.scheduled? %>
+      <p class="bg-blue-100 rounded p-2">Scheduled</p>
+    <% end %>
+    <p><%= post.body %></p>
+  </div>
+
+
+<% end %>

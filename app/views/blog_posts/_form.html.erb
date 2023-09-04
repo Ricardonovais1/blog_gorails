@@ -1,0 +1,30 @@
+<%= form_with model: blog_post do |f| %>
+
+  <% if f.object.errors.any? %>
+    <% f.object.errors.full_messages.each do |message| %>
+      <div>
+        <p><%= message %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%= f.label :title, 'Título' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :body, 'Texto do post' %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div>
+    <%= f.label :published_at %>
+    <%= f.datetime_select :published_at, include_blank: true %>
+  </div>
+
+  <div class="p-2 my-3 bg-gray-200 rounded">
+    <%= f.button %>
+  </div>
+
+<% end %>
